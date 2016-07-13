@@ -1,0 +1,92 @@
+a:link    { text-decoration:none !important; }
+a:visited { text-decoration:none !important; }
+a:hover   { text-decoration:none !important; }
+a:active  { text-decoration:none !important; }
+ol,ul,dl{list-style:none !important;}
+#navbar {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #000000;
+}
+
+.exhibition {
+  border-top-style: solid;
+  border-top-color: #ff0000;
+  border-top-widtgh: 1px;
+}
+
+.exhibition_a {
+  color: #000 !important;
+  text-decoration: none;
+}
+
+.modal-body {
+  padding: 0 30px !important;
+}
+.modal-body p {
+  text-align: justify !important;
+}
+
+.modal-body ul {
+  float: left;
+}
+
+.modal-body li {
+  padding: 4px 4px;
+  float: left !important;
+}
+
+.googleMap {
+  width: 300px !important;
+  height: 300px !important;
+}
+
+.re_input {
+  width: 100% !important;
+  display: block;
+  float: left;
+}
+
+.writer {
+  float: left;
+  text-align: left;
+  vertical-align: top !important;
+  width: 15% !important;
+}
+
+.content {
+  margin-left: 6px;
+  float: left;
+  display: inline !important;
+  width: 77% !important;
+}
+
+.btn_empty {
+  width: 6% !important;
+}
+
+.reply_box {
+  width: 100% !important;
+  float: left;
+}
+.show_writer {
+  text-align: left;
+  float: left !important;
+  vertical-align: top !important;
+  display: inline !important;
+  width: 15% !important;
+}
+
+.show_content {
+  margin-left: 6px;
+  text-align: left;
+  float: left;
+  display: inline !important;
+  width: 67% !important;
+}
+
+.show_btn_empty {
+  margin-left: 6px;
+  float: left;
+  width: 15% !important;
+}

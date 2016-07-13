@@ -1,0 +1,16 @@
+<div class="container">
+        <div class="form-group">
+      <label for="exampleInputEmail1">작성자</label>
+      <input name="sosuda" type="text" value="<%= @view_post.noticer%>" class="form-control" id="sosuda" readonly>
+    </div>
+      <div class="form-group">
+      <label for="exampleInputEmail1">제 목</label>
+      <input name="title" type="text" value="<%= @view_post.notice_title %>" class="form-control" id="title">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">내 용</label>
+      <textarea name="description" class="form-control" rows="7" id="description"><%= @view_post.notice_content%>
+      </textarea>
+    </div>
+    <p style="float:right;"><%=@view_post.created_at.in_time_zone("Asia/Seoul").strftime("%Y년-%m-%d일 %H시%M분%S초")%></p>
+</div>

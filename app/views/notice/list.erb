@@ -1,0 +1,20 @@
+<div class="container" style="margin-top: 40px;">
+  <table class="table text-center">
+    <tr>
+      <td style="width:5%;">번호</td>
+      <td style="width:55%;">제목</td>
+      <td style="width:20%;">작성자</td>
+      <td style="width:20%;">작성일</td>
+    </tr>
+    <% @notice_post.each do |p| %>
+    <tr style="cursor:pointer;" onmouseover = "this.style.color = '#7c0daa'" onmouseout = "this.style.color = '#000'" onclick = "location.href='/notice/notice_view/<%=p.id%>'">
+      <td><%= p.id %></td>
+      <td><%= p.notice_title %></td>
+      <td><%= p.noticer %></td>
+      <td><%= p.created_at.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d") %></td>
+    </tr>
+    <% end %>
+</table>
+</div>
+
+<a href="/notice/notice_write"><button type="button">글 작성</button></a>

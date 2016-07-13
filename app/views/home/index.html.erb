@@ -1,0 +1,124 @@
+  <br>
+  <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <a class="exhibition_a" data-toggle="modal" href="#myModal" onclick="initialize()">
+            <div class="exhibition">
+              <dl>
+              <dt>기 고 자</dt>
+              <dd>현재 전시 : 모건 왕 개인전</dd>
+              <dd>2016년 3월 11일 – 4월 16일</dd>
+              <dl>
+            </div>
+          </a>
+          </div>
+          <div class="col-md-4">
+            <div class="exhibition">
+              <dl>
+              <dt>The Place MAK</dt>
+              <dd>현재 전시 : 거북거북없는</dd>
+              <dd>2016년 6월 11일 – 6월 26일</dd>
+              <dl>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="exhibition">
+              <dl>
+              <dt>기 고 자</dt>
+              <dd>현재 전시 : 모건 왕 개인전</dd>
+              <dd>2016년 3월 11일 – 4월 16일</dd>
+              <dl>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="exhibition">
+              <dl>
+              <dt>기 고 자</dt>
+              <dd>현재 전시 : 모건 왕 개인전</dd>
+              <dd>2016년 3월 11일 – 4월 16일</dd>
+              <dl>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="exhibition">
+              <dl>
+              <dt>기 고 자</dt>
+              <dd>현재 전시 : 모건 왕 개인전</dd>
+              <dd>2016년 3월 11일 – 4월 16일</dd>
+              <dl>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="exhibition">
+              <dl>
+              <dt>기 고 자</dt>
+              <dd>현재 전시 : 모건 왕 개인전</dd>
+              <dd>2016년 3월 11일 – 4월 16일</dd>
+              <dl>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">기고자(KiGoJa) - 모건 왕 개인전</h4>
+                </div>
+                <div class="modal-body">
+                  <ul>
+                    <li><%=image_tag ("kikoja.jpg") %></li>
+                    <li><div class="googleMap" id="map_view"></div></li>
+                  </ul>
+                  <dd>
+                  <h5><strong>전시 날짜 : 2016년 3월 11일 - 4월 16일</strong></h5>
+                  <p>전시 내용 : 오는 3월 11일부터 4월 16일까지 기고자에서 열리는 홍콩 작가 모건 왕(Morgan Wong)의 개인전에 초대합니다. 최근 몇 년간 모건 왕은 다양한 매체를 활용한 도발적인 작업으로 주목을 받아 왔습니다. 지속적 퍼포먼스(durational performance)와 복잡 다단한 설치 및 영상 작업으로 이름을 알린 작가는 시간성의 요소를 물질성과 연결시키는 것에 초점을 두고 작업하고 있습니다.</p>
+                  <p>시공간 체험에 관한 시적이면서 모순적이고 비물질적인 방식들을 실험한 이전 작품들의 방법론을 유지하고 있는 모건 왕의 가장 최근 프로젝트인 <기고자 표준시KIGOJA Standard Time (KST)>는 세계표준시가 지니는 정치적 함의를 다루는 동시에 무엇이 우리로 하여금 시차를 체험하도록 하는지 질문을 던집니다.</p>
+                </dd>
+                </div>
+                <div class="modal-footer" style="background-color: #e3e4e4;">
+                  <% @posts.each do |p| %><!-- do end 사이에서 @posts 변수는 p라는 이름으로 대신 쓰임 -->
+                  <div class="reply_box">
+                      <p class="show_writer"><%= p.writer %></p>
+                      <p class="show_content"><%= p.content %></p>
+                      <p class="show_btn_empty"><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%Y.%m.%d %H:%M:%S")%></p>
+                    </div>
+                      <% p.replykis.each do |r|%>
+                      <p><%= r.replier%></p>
+                      <p><%= r.reply_content%></p>
+                      <% end %>
+                      <% end %>
+                  <div class="re_input">
+                    <form style="margin-top:20px" action="/home/write" method="POST">
+                      <div class="form-group">
+                        <input type="text" name="writer" class="form-control writer" placeholder="작성자">
+                          <textarea class="form-control content" rows="1" id="content" name="content" placeholder="내용"></textarea>
+                            <button type="submit" class="btn btn-primary btn_empty">완료</button>
+                      </div>
+                    </form>
+                  </div>
+
+<!--
+                  <form style="margin-top:20px" action="/home/reply_write" method="POST">
+                    <input type="hidden" value="1" name="id_of_postki">
+                    <div class="form-group">
+                      <input type="text" name="replier" class="form-control writer" placeholder="댓글 작성자">
+                        <textarea class="form-control content" rows="1" id="recontent" name="recontent" placeholder="내용"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-default">완료</button>
+                  </form> -->
+                  <br>
+                  <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
